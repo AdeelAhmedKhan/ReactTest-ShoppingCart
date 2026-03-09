@@ -1,0 +1,101 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f4f7fb;
+  --text: #0f172a;
+  --muted: #64748b;
+  --surface: rgba(255, 255, 255, 0.84);
+  --surface-strong: #ffffff;
+  --line: #d9e1ee;
+  --primary: #0f172a;
+  --primary-strong: #020617;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", Tahoma, sans-serif;
+  color: var(--text);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  background:
+    radial-gradient(circle at 6% 8%, #dbeafe 0%, transparent 32%),
+    radial-gradient(circle at 92% 15%, #fde68a 0%, transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, var(--bg) 42%, #eef2f8 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border shadow-sm backdrop-blur;
+    background: var(--surface);
+    border-color: var(--line);
+  }
+
+  .solid-card {
+    @apply rounded-2xl border shadow-sm;
+    background: var(--surface-strong);
+    border-color: var(--line);
+  }
+
+  .input-base {
+    @apply w-full rounded-xl border px-3 py-2.5 text-sm outline-none ring-slate-300 transition focus:ring;
+    border-color: var(--line);
+    background: #ffffff;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold text-white transition;
+    background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #1e293b 0%, var(--primary-strong) 100%);
+  }
+
+  .btn-soft {
+    @apply inline-flex items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-semibold transition;
+    border-color: var(--line);
+    color: #334155;
+    background: #ffffff;
+  }
+
+  .btn-soft:hover {
+    background: #f8fafc;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold;
+    background: #eef2ff;
+    color: #4338ca;
+  }
+
+  .page-head {
+    @apply mb-5 flex flex-wrap items-end justify-between gap-3;
+  }
+
+  .page-title {
+    @apply text-3xl font-extrabold tracking-tight;
+  }
+
+  .page-subtitle {
+    @apply mt-1 text-sm;
+    color: var(--muted);
+  }
+}
